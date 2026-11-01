@@ -1,2 +1,69 @@
 # school-telegram-bot
-Telegram bot for online school with student registration, schedule, homework, grades, and profile support
+
+Продвинутая версия Telegram-бота для онлайн-школы.
+
+Что умеет:
+- регистрация учеников и учителей
+- роли: student / teacher
+- просмотр расписания
+- просмотр домашнего задания
+- просмотр оценок
+- панель учителя для добавления:
+  - домашних заданий
+  - оценок
+  - уроков в расписание
+- хранение данных в SQLite
+- inline-кнопки в главном меню
+
+Стек:
+- Python
+- python-telegram-bot
+- SQLite
+
+Структура проекта:
+- `school_bot.py` — основной бот
+- `requirements.txt` — зависимости
+- `school_bot.db` — база данных SQLite (создаётся автоматически)
+
+Подготовка:
+1. Установите зависимости:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Создайте бота через @BotFather и получите токен.
+3. Добавьте токен в переменную окружения:
+   ```bash
+   export BOT_TOKEN="ВАШ_ТОКЕН"
+   ```
+   или замените значение в коде `BOT_TOKEN = os.getenv("BOT_TOKEN", "YOUR_TELEGRAM_BOT_TOKEN")`.
+4. Запустите бота:
+   ```bash
+   python school_bot.py
+   ```
+
+Основные команды:
+- `/start`
+- `/register`
+- `/schedule`
+- `/homework`
+- `/grades`
+- `/profile`
+- `/teacher_panel`
+- `/help`
+
+Сценарий использования:
+- ученик регистрируется как student и выбирает класс
+- учитель регистрируется как teacher и работает через `/teacher_panel`
+- учитель через панель может добавлять домашку, уроки и оценки
+- ученик через бота получает расписание, домашку и оценки
+
+Примечание:
+Это рабочая базовая версия для онлайн-школы. На её основе можно легко добавить:
+- API/backend на FastAPI
+- веб-админку
+- Android SDK / Kotlin client
+- отправку напоминаний
+- хранение нескольких классов и учителей
+- роли родителей
+
+Для production лучше вынести bot-логику в отдельные модули и подключить PostgreSQL вместо SQLite.
